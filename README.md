@@ -58,4 +58,4 @@ python3 -m http.server 8080
 npx serve .
 ```
 
-Luego visita `http://localhost:8080/el-faro-digital/`.
+Luego visita `http://localhost:8080/el-faro-digital/` o  `http://localhost:8080` según versión.
