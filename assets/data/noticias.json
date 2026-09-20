@@ -1,0 +1,147 @@
+[
+  {
+    "id": "ia-aulas-universitarias",
+    "categoria": "Tecnología",
+    "colorBadge": "bg-tertiary-fixed text-on-tertiary-fixed",
+    "titulo": "Inteligencia Artificial en Aulas Universitarias: la revolución educativa que redefine el aprendizaje",
+    "resumen": "Nuevas metodologías adaptativas están reescribiendo la interacción docente-estudiante, integrando sistemas analíticos éticos y modelos de tutoría sin precedentes.",
+    "contenido": [
+      "Durante los últimos dos años, más de cuarenta universidades iberoamericanas han incorporado asistentes de aprendizaje basados en modelos de lenguaje para personalizar el ritmo de estudio de cada alumno.",
+      "Los docentes consultados coinciden en que la tecnología no reemplaza la mediación pedagógica, sino que libera tiempo para la retroalimentación individual y el pensamiento crítico.",
+      "El principal reto identificado por los centros académicos es garantizar la equidad de acceso y evitar que la brecha digital se traduzca en una brecha de aprendizaje.",
+      "Los primeros resultados muestran una mejora sostenida en la retención de contenidos y una reducción en las tasas de deserción en cursos introductorios de ciencias exactas."
+    ],
+    "autor": "John Olarte",
+    "fecha": "2026-10-24",
+    "tiempoLectura": 4,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmaPIiQfkWAHwpZGkCLIS_YFutE5MSS3AKXXB_ZcgLXTdChh63gMjpXGQtcyH7Tvi249eWuBQoaVJLA9J-yB2cIjrjQMWv-_kqYd812oakbVeWybAne9xDRsZqFfRX0lISmbUv34Ovf9o2yg1sU8BcOd0M6bEDnp1xCOagrLWydEihQKz8hD8irUZEy_XfvWnMNzWQ_q9PCH9jb_7idRpNqYvY7VKCm74AdXPfxMjzshAhiwXAu6C3Pw",
+    "destacada": true,
+    "vistas": 15234
+  },
+  {
+    "id": "rutas-ecoturisticas-cafe",
+    "categoria": "Turismo",
+    "colorBadge": "bg-surface-container-highest text-secondary",
+    "titulo": "Rutas Ecoturísticas del Café: senderos ocultos y avistamiento de aves en la cordillera central",
+    "resumen": "Comunidades campesinas abren corredores biológicos protegidos donde la caficultura orgánica y la preservación del loro orejiamarillo impulsan un modelo turístico consciente.",
+    "contenido": [
+      "Diez fincas familiares del eje cafetero se asociaron para crear un corredor turístico que conecta bosques de niebla, plantaciones orgánicas certificadas y miradores naturales.",
+      "El proyecto incluye guías locales capacitados en interpretación ambiental, lo que ha generado nuevas fuentes de ingreso para jóvenes rurales.",
+      "Los visitantes pueden participar en jornadas de anillamiento de aves y talleres de catación, todo bajo protocolos de bajo impacto ambiental."
+    ],
+    "autor": "Valeria Jiménez",
+    "fecha": "2026-10-23",
+    "tiempoLectura": 6,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuDv_nCs5ZTkKkXr6E2f_uw0Eg0S8Bygs0ZuLeIQVcSOnB5f3YBVnqgqWW16GMKNd5lnoEDknCYJbgmmOuef8i-rE9GojXrmlLK6UWILeFlGp_qS8ZO-e0yuqPPcO6gckBtCqlscHbO0msI_eYM8Z5le1c0LEljelDvM1Ke2egnbcPHsqb6NT8Q-vtiL_EdjdzcqBEPTGNMesVNxHj5zl8slaf07WKqSmeyOhaave2hGalUcQWWZhwTsbw",
+    "destacada": true,
+    "vistas": 9871
+  },
+  {
+    "id": "becas-stem-2025",
+    "categoria": "Educación",
+    "colorBadge": "bg-surface-container text-on-surface",
+    "titulo": "Becas STEM 2025: guía paso a paso para postulaciones internacionales",
+    "resumen": "Requisitos de idiomas, ensayos de motivación y criterios de elegibilidad para programas de maestría en ciencias e ingenierías.",
+    "contenido": [
+      "Este año, catorce fundaciones internacionales abrieron convocatorias de financiamiento completo para estudiantes latinoamericanos en áreas STEM.",
+      "Los comités de selección priorizan proyectos de investigación con impacto social medible y cartas de recomendación de mentores activos en el campo.",
+      "El proceso de postulación exige, en promedio, entre tres y cinco meses de preparación documental, por lo que se recomienda iniciar con suficiente anticipación."
+    ],
+    "autor": "Laura Gómez",
+    "fecha": "2026-10-22",
+    "tiempoLectura": 5,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuChtg0Pc149_eSbkguggrnGlV4KFKj3h2iHIcAX2X71mNtl8-O9WMSC5x7jieqz2wD1_IE82zCPhfDGXcrct4u0V3DJb2Cg2BM3D9P2q80DbZ1vHMoiBqhfO3JqafObLmlrU20U2SZcqn9ne9qzSIgti9hgu1H1YRzk8a7yqpkmLt_kVN7VQxXF5XYKRCfLB_Cqk5djPfHjgWC7l4JPBbnq3TBx1Y2Fi9B7qtv9RSoF3Bz79t515DWnkQ",
+    "destacada": false,
+    "vistas": 7420
+  },
+  {
+    "id": "comercio-digital-sustentable",
+    "categoria": "Comercial",
+    "colorBadge": "bg-secondary-fixed text-on-secondary-fixed-variant",
+    "titulo": "El auge del comercio digital sustentable: marcas locales que conquistan mercados internacionales",
+    "resumen": "Emprendimientos de moda circular y cosmética botánica superan barreras arancelarias implementando trazabilidad blockchain y embalajes libres de plástico de un solo uso.",
+    "contenido": [
+      "Un grupo de veinte pymes exportadoras adoptó certificaciones de bajo impacto ambiental para acceder a mercados europeos con exigencias regulatorias estrictas.",
+      "La trazabilidad basada en registros distribuidos permite a los compradores verificar el origen y las condiciones laborales de cada producto.",
+      "Analistas del sector proyectan que la demanda por bienes con huella de carbono declarada crecerá de forma sostenida durante los próximos cinco años."
+    ],
+    "autor": "Sofía Carrillo",
+    "fecha": "2026-10-21",
+    "tiempoLectura": 3,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuAYezdoky89vSxV9d8G8awHVsQvFVis7DC4Wzwc1xzuczoJNx_uh6MAI1l5m3TKJ25uMT5Co9xfTQluDcsF_1yTdFhjVdCi34wIAMBCKQM1h-WhModQv_ExE2dxTVtjXb776t5JRU0rEOcLld3jfqf7qrcU98uvaa_ocOtfy8Yy865wBhi2MG8P2I8GWZ4C36eqYZXXeUL4oOG3upMO_tUJABZMazUuaMP1ZIOgcxLDTJfAcZcaUIVriw",
+    "destacada": false,
+    "vistas": 5602
+  },
+  {
+    "id": "ciberseguridad-pymes",
+    "categoria": "Tecnología",
+    "colorBadge": "bg-tertiary-fixed text-on-tertiary-fixed",
+    "titulo": "Ciberseguridad para pymes: el eslabón más débil de la cadena digital regional",
+    "resumen": "Un informe regional revela que el 67% de las pequeñas empresas no cuenta con protocolos básicos de respaldo ni cifrado de datos sensibles.",
+    "contenido": [
+      "El estudio, realizado sobre una muestra de 1.200 empresas, identifica al phishing como el vector de ataque más frecuente en la región.",
+      "Los especialistas recomiendan capacitaciones trimestrales y auditorías externas como medidas de bajo costo con alto impacto preventivo.",
+      "Los sectores comercio y salud concentran el mayor número de incidentes reportados durante el último año."
+    ],
+    "autor": "Julián Ospina",
+    "fecha": "2026-10-20",
+    "tiempoLectura": 5,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmaPIiQfkWAHwpZGkCLIS_YFutE5MSS3AKXXB_ZcgLXTdChh63gMjpXGQtcyH7Tvi249eWuBQoaVJLA9J-yB2cIjrjQMWv-_kqYd812oakbVeWybAne9xDRsZqFfRX0lISmbUv34Ovf9o2yg1sU8BcOd0M6bEDnp1xCOagrLWydEihQKz8hD8irUZEy_XfvWnMNzWQ_q9PCH9jb_7idRpNqYvY7VKCm74AdXPfxMjzshAhiwXAu6C3Pw",
+    "destacada": false,
+    "vistas": 4310
+  },
+  {
+    "id": "destinos-sostenibles-caribe",
+    "categoria": "Turismo",
+    "colorBadge": "bg-surface-container-highest text-secondary",
+    "titulo": "Destinos sostenibles del Caribe: el turismo regenerativo gana terreno frente al modelo masivo",
+    "resumen": "Islas y municipios costeros limitan la capacidad de carga diaria para proteger arrecifes y economías pesqueras artesanales.",
+    "contenido": [
+      "Cuatro destinos insulares implementaron cupos diarios de visitantes tras evidenciar el deterioro acelerado de sus arrecifes coralinos.",
+      "Los operadores turísticos certificados reinvierten un porcentaje de sus ingresos en programas de restauración marina.",
+      "El modelo ha sido replicado por comunidades costeras del Pacífico con resultados preliminares alentadores."
+    ],
+    "autor": "Valeria Jiménez",
+    "fecha": "2026-10-19",
+    "tiempoLectura": 4,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuCGg8piRnu1BlmL1PLEHGONFpVN1EAiynyfx-2qcPalLi6ojMuyaVpm87E0gKzxmUd0EmeracDVJ_Gw4xahvWywpxftq-Cg1vWwblqw5CAutYguoci7SvQTSIaHehE1NGwN0nJeEIRpm0PLhk5H2LA9pZQw4vdwgYGWcQ9k3ZOKdJCZ-plUPNegWpIgh-EeQ-0U4is6Xx26Q9xF8oa7DkYW2JwwiIHgJ-E-GwKctI3z34o8xN7MU004MA",
+    "destacada": false,
+    "vistas": 3987
+  },
+  {
+    "id": "innovacion-pedagogica-rural",
+    "categoria": "Educación",
+    "colorBadge": "bg-surface-container text-on-surface",
+    "titulo": "Innovación pedagógica rural: aulas híbridas conectan veredas sin cobertura de internet estable",
+    "resumen": "Un programa piloto entrega contenidos offline sincronizables para garantizar continuidad educativa en zonas de conectividad limitada.",
+    "contenido": [
+      "El programa distribuye dispositivos con contenidos precargados que se sincronizan automáticamente al detectar una red disponible.",
+      "Docentes rurales reportan una mejora en la participación estudiantil gracias a materiales audiovisuales adaptados al contexto local.",
+      "El Ministerio de Educación evalúa extender la iniciativa a doscientas instituciones adicionales durante el próximo año lectivo."
+    ],
+    "autor": "Laura Gómez",
+    "fecha": "2026-10-18",
+    "tiempoLectura": 5,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuAnSgmEtSJbAZASQ8W0IeEsCl_kSzfPe2qjIal4k95dOa9mYGE2kHBvKRWB7tE3yzLFs_ijXVpQrxea39LBXiCD3dzBFfy4HHj_6P5hMwx2Rvq5gWuh3AUTZBEGfP2fbsxQh3ENjwrEkfMsY8UEtLzoBOUvczGPNfCCjpMk48FUSLxI2FD7VfGf8EPtwpQDYCCRpkEKiqyZ58qDShL06wjdHWd8vtxsRMZ9tTeJ8Co0S0cKGwvWJJ0uiw",
+    "destacada": false,
+    "vistas": 3210
+  },
+  {
+    "id": "startups-ecosistema-2025",
+    "categoria": "Tecnología",
+    "colorBadge": "bg-tertiary-fixed text-on-tertiary-fixed",
+    "titulo": "El ecosistema de startups iberoamericano capta financiamiento récord en el tercer trimestre",
+    "resumen": "Fondos de capital de riesgo redirigen inversión hacia soluciones de agrotecnología, salud digital y logística de última milla.",
+    "contenido": [
+      "El monto total invertido en la región durante el trimestre superó los 900 millones de dólares, un incremento del 22% frente al año anterior.",
+      "Los fondos destacan la madurez de los equipos fundadores y la validación temprana de mercado como factores decisivos.",
+      "La agrotecnología concentra el mayor número de rondas de inversión semilla registradas en los últimos seis meses."
+    ],
+    "autor": "Julián Ospina",
+    "fecha": "2026-10-17",
+    "tiempoLectura": 4,
+    "imagen": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmaPIiQfkWAHwpZGkCLIS_YFutE5MSS3AKXXB_ZcgLXTdChh63gMjpXGQtcyH7Tvi249eWuBQoaVJLA9J-yB2cIjrjQMWv-_kqYd812oakbVeWybAne9xDRsZqFfRX0lISmbUv34Ovf9o2yg1sU8BcOd0M6bEDnp1xCOagrLWydEihQKz8hD8irUZEy_XfvWnMNzWQ_q9PCH9jb_7idRpNqYvY7VKCm74AdXPfxMjzshAhiwXAu6C3Pw",
+    "destacada": false,
+    "vistas": 6120
+  }
+]

@@ -1,0 +1,102 @@
+/**
+ * Configuración compartida de Tailwind (design tokens de El Faro Digital).
+ * Se carga en <head> de cada página, antes de cerrar el documento,
+ * para mantener consistencia visual sin duplicar el bloque en cada archivo.
+ */
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        background: "#f8f9ff",
+        "surface-bright": "#f8f9ff",
+        "on-tertiary-fixed": "#00174b",
+        "on-surface": "#0b1c30",
+        "on-secondary": "#ffffff",
+        "error-container": "#ffdad6",
+        "on-error": "#ffffff",
+        "surface-container": "#e5eeff",
+        "on-surface-variant": "#45464d",
+        "on-tertiary-container": "#497cff",
+        "surface-tint": "#565e74",
+        "tertiary-fixed": "#dbe1ff",
+        surface: "#f8f9ff",
+        "primary-fixed-dim": "#bec6e0",
+        "inverse-primary": "#bec6e0",
+        tertiary: "#000000",
+        "on-secondary-fixed": "#410002",
+        "surface-container-high": "#dce9ff",
+        "on-primary-fixed-variant": "#3f465c",
+        "surface-container-lowest": "#ffffff",
+        outline: "#76777d",
+        "surface-dim": "#cbdbf5",
+        "surface-container-highest": "#d3e4fe",
+        primary: "#000000",
+        "on-error-container": "#93000a",
+        "on-primary-container": "#7c839b",
+        secondary: "#b6191a",
+        "on-secondary-fixed-variant": "#93000b",
+        "surface-container-low": "#eff4ff",
+        "primary-fixed": "#dae2fd",
+        "on-background": "#0b1c30",
+        "surface-variant": "#d3e4fe",
+        "secondary-container": "#d9352f",
+        "inverse-surface": "#213145",
+        "on-secondary-container": "#fffbff",
+        "primary-container": "#131b2e",
+        "on-primary-fixed": "#131b2e",
+        "tertiary-container": "#00174b",
+        "on-tertiary": "#ffffff",
+        "outline-variant": "#c6c6cd",
+        "secondary-fixed": "#ffdad6",
+        "on-primary": "#ffffff",
+        "inverse-on-surface": "#eaf1ff",
+        "secondary-fixed-dim": "#ffb4ab",
+        error: "#ba1a1a",
+        "tertiary-fixed-dim": "#b4c5ff",
+        "on-tertiary-fixed-variant": "#003ea8"
+      },
+      borderRadius: { DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem" },
+      spacing: {
+        "space-xxs": "0.25rem",
+        "space-lg": "1.5rem",
+        "space-xs": "0.5rem",
+        "gutter-mobile": "1rem",
+        "space-2xl": "3rem",
+        "gutter-desktop": "1.5rem",
+        "space-3xl": "4.5rem",
+        "container-max": "1320px",
+        "space-xl": "2rem",
+        "space-md": "1rem",
+        "space-sm": "0.75rem",
+        "reading-column-max": "720px"
+      },
+      fontFamily: {
+        "headline-sm": ["Newsreader"],
+        "label-md": ["Plus Jakarta Sans"],
+        "byline-meta": ["Plus Jakarta Sans"],
+        "headline-lg": ["Newsreader"],
+        "display-hero": ["Newsreader"],
+        "headline-md": ["Newsreader"],
+        "body-sm": ["Plus Jakarta Sans"],
+        "body-lead": ["Plus Jakarta Sans"],
+        "label-caps": ["Plus Jakarta Sans"],
+        "body-md": ["Plus Jakarta Sans"],
+        "headline-lead": ["Newsreader"]
+      },
+      fontSize: {
+        "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+        "label-md": ["13px", { lineHeight: "16px", fontWeight: "600" }],
+        "byline-meta": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+        "headline-lg": ["30px", { lineHeight: "38px", letterSpacing: "-0.01em", fontWeight: "500" }],
+        "display-hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "600" }],
+        "headline-md": ["22px", { lineHeight: "28px", fontWeight: "500" }],
+        "body-sm": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+        "body-lead": ["17px", { lineHeight: "28px", fontWeight: "400" }],
+        "label-caps": ["11px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "700" }],
+        "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+        "headline-lead": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" }]
+      }
+    }
+  }
+};

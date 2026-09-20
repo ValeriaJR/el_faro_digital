@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Detalle de Noticia · El Faro Digital</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased" data-page="noticia-destacada">
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+  <div class="w-full bg-surface-container-low">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-9 flex items-center justify-between font-byline-meta text-byline-meta text-on-surface-variant">
+      <div class="flex items-center gap-space-md">
+        <span class="flex items-center gap-space-xxs text-on-surface"><span class="material-symbols-outlined text-[16px]">calendar_today</span>Lunes, 14 de Septiembre de 2026</span>
+        <span class="hidden md:inline-block text-outline-variant">•</span>
+        <span class="hidden md:flex items-center gap-space-xxs"><span class="material-symbols-outlined text-[16px]">partly_cloudy_day</span>La Ceja / Medellín 19°C</span>
+        <span class="hidden lg:inline-block text-outline-variant">•</span>
+        <span class="hidden lg:flex items-center gap-space-xxs text-secondary"><span class="material-symbols-outlined text-[16px]">trending_up</span>USD/COP: $3.180,50 COP (+0.3%)</span>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a class="hover:text-on-surface transition-colors" href="#">Edición Impresa</a>
+        <span class="text-outline-variant">•</span>
+        <a class="hover:text-on-surface transition-colors" href="#">Newsletter</a>
+        <span class="text-outline-variant">•</span>
+        <a class="hover:text-on-surface transition-colors" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+  <div class="w-full bg-surface-container-lowest">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-20 flex items-center justify-between gap-space-lg">
+      <div class="flex items-center gap-space-md">
+        <a class="flex items-center gap-space-sm" data-path="inicio" href="index.html">
+          <img alt="El Faro Digital Logo" class="h-8 w-auto object-contain" src="assets/logo/logo_principal.png"/>
+          <div class="flex flex-col">
+            <span class="font-headline-md text-headline-md tracking-tight leading-none text-on-surface">EL FARO</span>
+            <span class="font-label-caps text-label-caps text-secondary tracking-widest">DIGITAL • PERIODISMO INDEPENDIENTE</span>
+          </div>
+        </a>
+      </div>
+      <div class="hidden md:flex flex-1 max-w-xl mx-space-md">
+        <div class="w-full flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-low rounded-lg text-on-surface-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+          <input class="w-full bg-transparent border-none outline-none font-label-md text-label-md text-on-surface placeholder:text-on-surface-variant/70" id="global-search-input" placeholder="Buscar noticias, temas o redactores..." type="text"/>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a class="relative flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg hover:bg-surface-container-low hover:text-on-surface text-on-surface-variant transition-colors" data-path="mis-favoritos" href="favoritos.html">
+          <span class="material-symbols-outlined text-[20px] text-secondary">bookmark</span>
+          <span class="hidden sm:inline font-label-md text-label-md">Guardados</span>
+          <span class="fav-badge px-1.5 py-0.2 bg-secondary text-on-secondary rounded-full text-[10px] font-bold leading-tight">0</span>
+        </a>
+        <div class="h-7 w-[1px] bg-surface-container-highest hidden sm:block"></div>
+        <div class="flex items-center gap-space-sm pl-space-xs">
+          <div class="relative">
+            <img alt="Perfil de usuario" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU8wz5fDyiDvXxVvwpWMxLFtMXApv0qRDV_phXqs_WwnMLQubtQDX5cQTu6t7WYmuyDdMxfv7JRgD548b37HaqUSGMZrdRsQ0JFaF0IDSgi55Xf6Gvdxd81BUC_7QNiRt1Wh1EmlgESQtmCRIJ4Bsf-XFyCUGb6kX4EYLG1deZBqPCGwTKBuqPwEe7xe0yqxha9d7Paff0Q2bwp9XOYHdt1-icbi4AM4xoLDkjvpkbWQNpPk2HmCmBPA"/>
+            <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-secondary rounded-full"></span>
+          </div>
+          <div class="hidden xl:flex flex-col text-left">
+            <span class="font-label-md text-label-md text-on-surface leading-tight">John Olarte</span>
+            <span class="font-byline-meta text-byline-meta text-on-surface-variant leading-none">Suscriptor Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-full bg-surface-container-lowest">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-12 flex items-center justify-between">
+      <nav class="flex items-center gap-space-xs overflow-x-auto py-1">
+        <a class="px-space-sm py-1.5 rounded font-label-md text-label-md whitespace-nowrap transition-colors" data-path="inicio" href="index.html">Inicio</a>
+        <a class="px-space-sm py-1.5 rounded font-label-md text-label-md whitespace-nowrap transition-colors" data-path="explorar-noticias" href="explorar.html">Explorar Noticias</a>
+        <a class="px-space-sm py-1.5 rounded font-label-md text-label-md whitespace-nowrap transition-colors" data-path="mis-favoritos" href="favoritos.html">Mis Favoritos</a>
+        <a class="px-space-sm py-1.5 rounded font-label-md text-label-md whitespace-nowrap transition-colors" data-path="gestion-y-contacto" href="contacto.html">Gestión &amp; Contacto</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-space-xs">
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Canal En Vivo</span>
+        <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+      </div>
+    </div>
+  </div>
+  <div class="w-full bg-surface-container-low">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-10 flex items-center gap-space-sm font-label-md text-label-md overflow-hidden">
+      <span class="px-space-xs py-0.5 bg-secondary text-on-secondary font-label-caps text-label-caps uppercase rounded tracking-wider whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">campaign</span>Última Hora</span>
+      <p class="truncate text-on-surface font-body-sm text-body-sm font-medium">Foro Internacional de Tecnología &amp; Educación abre inscripciones para 2027 • Conoce las ponencias centrales y agenda regional.</p>
+    </div>
+  </div>
+</header>
+<main class="w-full pt-[204px] bg-surface min-h-screen">
+<div class="flex flex-col w-full">
+<!-- Toast Notification Container (compartido) -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-xl" id="toastNotification">
+  <span class="material-symbols-outlined text-secondary text-[22px]" id="toastIcon" style="font-variation-settings: 'FILL' 1;">bookmark_added</span>
+  <div class="flex flex-col">
+    <span class="font-label-md text-label-md leading-tight" id="toastTitle">Artículo guardado</span>
+    <span class="font-byline-meta text-byline-meta text-surface-dim" id="toastMessage">Se ha sincronizado con tus favoritos.</span>
+  </div>
+</div>
+
+<div class="w-full max-w-[reading-column-max] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg" style="max-width: 900px;">
+  <div class="flex items-center gap-space-xs font-byline-meta text-byline-meta text-on-surface-variant">
+    <a class="hover:text-on-surface" href="index.html">Inicio</a>
+    <span>/</span>
+    <a class="hover:text-on-surface" href="explorar.html">Explorar Noticias</a>
+    <span>/</span>
+    <span class="text-secondary font-semibold" id="breadcrumbCategoria">Noticia</span>
+  </div>
+
+  <div id="articleContainer" class="flex flex-col gap-space-md">
+    <div class="h-8 w-2/3 rounded skeleton"></div>
+    <div class="h-96 w-full rounded-xl skeleton"></div>
+    <div class="h-4 w-full rounded skeleton"></div>
+    <div class="h-4 w-5/6 rounded skeleton"></div>
+  </div>
+
+  <!-- Se muestra solo si el id de la URL no existe en el JSON -->
+  <div class="hidden flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm" id="notFoundState">
+    <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-md">
+      <span class="material-symbols-outlined text-[40px] text-secondary">error_outline</span>
+    </div>
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">No encontramos esta noticia</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Es posible que el enlace sea incorrecto o el artículo haya sido movido.</p>
+    <a class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors" href="explorar.html">Volver al catálogo</a>
+  </div>
+
+  <!-- Relacionadas -->
+  <div class="flex flex-col gap-space-md pt-space-lg" id="relatedSection">
+    <div class="flex items-center gap-space-md">
+      <div class="h-1 w-12 bg-secondary rounded-full"></div>
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface font-bold">También te puede interesar</span>
+      <div class="flex-1 h-[1px] bg-surface-container-highest"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md" id="relatedGrid"></div>
+  </div>
+</div>
+
+</div>
+</main>
+<footer class="w-full bg-surface-container-lowest">
+  <div class="max-w-[1320px] mx-auto px-gutter-desktop pt-space-2xl pb-space-xl">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-xl mb-space-2xl">
+      <div class="lg:col-span-2 flex flex-col gap-space-md">
+        <div class="flex items-center gap-space-sm">
+          <img alt="El Faro Digital Logo" class="h-8 w-auto object-contain" src="assets/logo/logo_principal.png"/>
+          <span class="font-headline-md text-headline-md text-on-surface">EL FARO DIGITAL</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Periodismo riguroso, independiente y con enfoque analítico para Iberoamérica. Investigaciones, crónicas, cobertura tecnológica y análisis del acontecer sociocultural.</p>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest">Educación</h3>
+        <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+          <li class="hover:text-on-surface transition-colors"><a href="explorar.html?categoria=Educaci%C3%B3n">Universidades &amp; I+D</a></li>
+          <li class="hover:text-on-surface transition-colors"><a href="explorar.html?categoria=Educaci%C3%B3n">Becas &amp; Posgrados</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest">Tecnología</h3>
+        <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+          <li class="hover:text-on-surface transition-colors"><a href="explorar.html?categoria=Tecnolog%C3%ADa">Inteligencia Artificial</a></li>
+          <li class="hover:text-on-surface transition-colors"><a href="explorar.html?categoria=Tecnolog%C3%ADa">Ciberseguridad</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest">Comercio &amp; Turismo</h3>
+        <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+          <li class="hover:text-on-surface transition-colors"><a href="explorar.html?categoria=Comercial">Mercados y Finanzas</a></li>
+          <li class="hover:text-on-surface transition-colors"><a href="explorar.html?categoria=Turismo">Destinos Sostenibles</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col gap-space-sm">
+        <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest">Opinión &amp; Redacción</h3>
+        <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+          <li class="hover:text-on-surface transition-colors"><a href="contacto.html">Columnistas Invitados</a></li>
+          <li class="hover:text-on-surface transition-colors"><a href="contacto.html">Tribuna Ciudadana</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-byline-meta text-byline-meta text-on-surface-variant">
+      <div class="flex items-center gap-space-md flex-wrap">
+        <p>© 2026 El Faro Digital Medios S.A.S. Todos los derechos reservados.</p>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a aria-label="RSS" class="hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">rss_feed</span></a>
+        <a aria-label="Podcasts" class="hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+        <a aria-label="Compartir" class="hover:text-on-surface transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">share</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/admin-store.js"></script>
+<script src="assets/js/toast.js"></script>
+<script src="assets/js/data-service.js"></script>
+<script src="assets/js/render.js"></script>
+<script src="assets/js/validate.js"></script>
+<script src="assets/js/nav.js"></script>
+<script src="assets/js/noticia.js"></script>
+</body>
+</html>

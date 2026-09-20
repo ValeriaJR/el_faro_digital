@@ -1,0 +1,177 @@
+<div class="w-full max-w-[1320px] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg">
+  <div class="flex flex-col gap-space-xxs">
+    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Buzón Seguro</span>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gestión Editorial &amp; Contacto</h1>
+    <p class="font-body-lead text-body-lead text-on-surface-variant max-w-2xl">Escríbenos, propone una columna o administra el catálogo de noticias publicadas.</p>
+  </div>
+
+  <!-- Tabs -->
+  <div class="flex items-center gap-space-xs border-b border-surface-container-highest">
+    <button class="tab-btn px-space-md py-space-sm font-label-md text-label-md border-b-2 transition-colors" data-tab="contact" id="tabBtnContact">Contacto &amp; Redacción</button>
+    <button class="tab-btn px-space-md py-space-sm font-label-md text-label-md border-b-2 transition-colors" data-tab="crud" id="tabBtnCrud">Gestión de Noticias</button>
+  </div>
+
+  <!-- Panel: Contacto -->
+  <section class="tab-panel flex flex-col lg:flex-row gap-space-xl" id="panelContact">
+    <form class="flex-1 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md" id="contactForm" novalidate="">
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="contactName">Nombre completo</label>
+        <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary" id="contactName" placeholder="Ej. Ana María Torres" type="text"/>
+        <span class="hidden font-byline-meta text-byline-meta text-error" id="contactName-error"></span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="contactEmail">Correo electrónico</label>
+        <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary" id="contactEmail" placeholder="tu-correo@ejemplo.com" type="email"/>
+        <span class="hidden font-byline-meta text-byline-meta text-error" id="contactEmail-error"></span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="contactSubject">Motivo</label>
+        <select class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary" id="contactSubject">
+          <option value="">Selecciona un motivo</option>
+          <option value="columna">Propuesta de columna ciudadana</option>
+          <option value="denuncia">Denuncia o réplica</option>
+          <option value="prensa">Solicitud de prensa</option>
+          <option value="soporte">Soporte técnico del sitio</option>
+        </select>
+        <span class="hidden font-byline-meta text-byline-meta text-error" id="contactSubject-error"></span>
+      </div>
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center justify-between">
+          <label class="font-label-md text-label-md text-on-surface" for="contactMessage">Mensaje</label>
+          <span class="font-byline-meta text-byline-meta text-on-surface-variant" id="contactCharCount">0 / 500</span>
+        </div>
+        <textarea class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary resize-none" id="contactMessage" maxlength="500" placeholder="Cuéntanos en qué podemos ayudarte..." rows="5"></textarea>
+        <span class="hidden font-byline-meta text-byline-meta text-error" id="contactMessage-error"></span>
+      </div>
+      <label class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+        <input class="mt-1" id="contactTerms" type="checkbox"/>
+        <span>Acepto la <a class="text-secondary hover:underline" href="#">política de privacidad</a> y el código de ética editorial.</span>
+      </label>
+      <span class="hidden font-byline-meta text-byline-meta text-error" id="contactTerms-error"></span>
+
+      <button class="px-space-md py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors flex items-center justify-center gap-space-xs" id="contactSubmitBtn" type="submit">
+        <span class="spinner hidden" id="contactSpinner"></span>
+        <span id="contactSubmitLabel">Enviar mensaje</span>
+      </button>
+
+      <div class="hidden flex-col gap-space-xxs p-space-md bg-surface-container rounded-lg" id="contactSuccessBanner">
+        <div class="flex items-center gap-space-xs text-on-surface font-label-md text-label-md font-semibold">
+          <span class="material-symbols-outlined text-secondary text-[20px]">task_alt</span>
+          <span>¡Mensaje enviado con éxito!</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Tu número de radicado es <strong id="ticketNumber">—</strong>. Te responderemos a tu correo en un plazo máximo de 3 días hábiles.</p>
+      </div>
+    </form>
+
+    <aside class="lg:w-80 flex flex-col gap-space-md">
+      <div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-sm">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Otros canales</h3>
+        <div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+          <span class="material-symbols-outlined text-[18px] text-secondary">mail</span>
+          <span>redaccion@elfarodigital.com</span>
+        </div>
+        <div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+          <span class="material-symbols-outlined text-[18px] text-secondary">schedule</span>
+          <span>Lunes a viernes, 8:00 a.m. – 6:00 p.m.</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Panel: Gestión de Noticias (CRUD) -->
+  <section class="tab-panel hidden flex-col gap-space-lg" id="panelCrud">
+    <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+      <div class="relative min-w-[220px] md:max-w-xs">
+        <span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-on-surface-variant">search</span>
+        <input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-label-md text-label-md rounded-lg outline-none" id="crudFilterInput" placeholder="Buscar por título..." type="text"/>
+      </div>
+      <button class="px-space-md py-space-xs bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors flex items-center gap-space-xs w-fit" id="btnNewNews">
+        <span class="material-symbols-outlined text-[18px]">add</span>
+        <span>Nueva noticia</span>
+      </button>
+    </div>
+
+    <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-x-auto">
+      <table class="w-full text-left" id="crudTable">
+        <thead class="bg-surface-container-low">
+          <tr class="font-label-caps text-label-caps text-on-surface-variant uppercase">
+            <th class="px-space-md py-space-sm">Título</th>
+            <th class="px-space-md py-space-sm">Categoría</th>
+            <th class="px-space-md py-space-sm">Autor</th>
+            <th class="px-space-md py-space-sm">Fecha</th>
+            <th class="px-space-md py-space-sm text-right">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="crudTableBody"></tbody>
+      </table>
+      <div class="hidden flex-col items-center justify-center py-space-2xl text-center" id="crudEmptyState">
+        <p class="font-body-md text-body-md text-on-surface-variant">No hay noticias que coincidan con tu búsqueda.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Modal: Crear / Editar Noticia -->
+<div class="hidden fixed inset-0 z-50 items-center justify-center bg-inverse-surface/60 backdrop-blur-sm px-gutter-mobile py-space-xl overflow-y-auto" id="newsFormModal">
+  <form class="bg-surface-container-lowest max-w-2xl w-full p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md my-auto" id="newsForm" novalidate="">
+    <div class="flex items-center justify-between">
+      <h3 class="font-headline-sm text-headline-sm text-on-surface" id="newsFormTitle">Nueva noticia</h3>
+      <button class="text-on-surface-variant hover:text-on-surface" id="btnCloseNewsForm" type="button">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <input id="newsId" type="hidden"/>
+    <div class="flex flex-col gap-1">
+      <label class="font-label-md text-label-md text-on-surface" for="newsTitle">Título</label>
+      <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none" id="newsTitle" type="text"/>
+      <span class="hidden font-byline-meta text-byline-meta text-error" id="newsTitle-error"></span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="newsCategory">Categoría</label>
+        <select class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none" id="newsCategory">
+          <option value="Tecnología">Tecnología</option>
+          <option value="Turismo">Turismo</option>
+          <option value="Educación">Educación</option>
+          <option value="Comercial">Comercial</option>
+        </select>
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="newsAuthor">Autor</label>
+        <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none" id="newsAuthor" type="text"/>
+        <span class="hidden font-byline-meta text-byline-meta text-error" id="newsAuthor-error"></span>
+      </div>
+    </div>
+    <div class="flex flex-col gap-1">
+      <label class="font-label-md text-label-md text-on-surface" for="newsImage">URL de imagen</label>
+      <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none" id="newsImage" placeholder="https://..." type="url"/>
+      <span class="hidden font-byline-meta text-byline-meta text-error" id="newsImage-error"></span>
+    </div>
+    <div class="flex flex-col gap-1">
+      <label class="font-label-md text-label-md text-on-surface" for="newsSummary">Resumen</label>
+      <textarea class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none resize-none" id="newsSummary" maxlength="220" rows="2"></textarea>
+      <span class="hidden font-byline-meta text-byline-meta text-error" id="newsSummary-error"></span>
+    </div>
+    <div class="flex flex-col gap-1">
+      <label class="font-label-md text-label-md text-on-surface" for="newsContent">Contenido (un párrafo por línea)</label>
+      <textarea class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none resize-none" id="newsContent" rows="4"></textarea>
+      <span class="hidden font-byline-meta text-byline-meta text-error" id="newsContent-error"></span>
+    </div>
+    <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+      <button class="px-space-md py-space-xs font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-colors" id="btnCancelNewsForm" type="button">Cancelar</button>
+      <button class="px-space-md py-space-xs font-label-md text-label-md text-on-primary bg-primary hover:bg-primary-container rounded-lg transition-colors" type="submit">Guardar noticia</button>
+    </div>
+  </form>
+</div>
+
+<!-- Modal: Confirmar eliminación -->
+<div class="hidden fixed inset-0 z-50 items-center justify-center bg-inverse-surface/60 backdrop-blur-sm px-gutter-mobile" id="deleteConfirmModal">
+  <div class="bg-surface-container-lowest max-w-md w-full p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md">
+    <h3 class="font-headline-sm text-headline-sm text-on-surface">¿Eliminar esta noticia?</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Esta acción no se puede deshacer.</p>
+    <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+      <button class="px-space-md py-space-xs font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-colors" id="btnCancelDelete">Cancelar</button>
+      <button class="px-space-md py-space-xs font-label-md text-label-md text-on-secondary bg-secondary hover:bg-secondary-container rounded-lg transition-colors" id="btnConfirmDelete">Eliminar</button>
+    </div>
+  </div>
+</div>

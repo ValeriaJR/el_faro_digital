@@ -1,0 +1,34 @@
+[
+  {
+    "id": "buscador-tematico",
+    "icono": "manage_search",
+    "titulo": "Buscador Temático",
+    "descripcion": "Archivo hemerográfico y búsqueda semántica de informes desde 2018.",
+    "cta": "Explorar índices",
+    "enlace": "explorar.html"
+  },
+  {
+    "id": "catalogo-experiencias",
+    "icono": "travel_explore",
+    "titulo": "Catálogo de Experiencias",
+    "descripcion": "Guías geolocalizadas, rutas turísticas sostenibles y mapas interactivos descargables.",
+    "cta": "Ver rutas disponibles",
+    "enlace": "explorar.html?categoria=Turismo"
+  },
+  {
+    "id": "gestion-editorial",
+    "icono": "edit_note",
+    "titulo": "Gestión Editorial",
+    "descripcion": "Canal de envío de columnas ciudadanas, denuncias anónimas y réplicas.",
+    "cta": "Ir al buzón seguro",
+    "enlace": "contacto.html"
+  },
+  {
+    "id": "guardados-offline",
+    "icono": "offline_pin",
+    "titulo": "Guardados Offline",
+    "descripcion": "Sincroniza lecturas completas en tu dispositivo para leer sin conexión a red.",
+    "cta": "Gestionar mis guardados",
+    "enlace": "favoritos.html"
+  }
+]

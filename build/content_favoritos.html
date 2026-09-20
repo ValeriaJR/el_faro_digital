@@ -1,0 +1,93 @@
+<div class="w-full max-w-[1320px] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-xl">
+  <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+    <div class="max-w-3xl flex flex-col gap-space-xxs">
+      <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Archivo Personalizado</span>
+      <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Mis Artículos Guardados</h1>
+      <p class="font-body-lead text-body-lead text-on-surface-variant">Tu biblioteca personal de lecturas, sincronizada en este navegador mediante almacenamiento local.</p>
+    </div>
+    <div class="flex items-center gap-space-xs self-start lg:self-auto">
+      <button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-error-container text-on-error-container hover:bg-surface-container-high font-label-md text-label-md transition-colors" id="btnOpenClearModal">
+        <span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+        <span>Vaciar biblioteca</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Summary Stats -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md">
+      <div class="w-12 h-12 rounded-xl bg-surface-container-low text-primary flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-[24px]">bookmarks</span>
+      </div>
+      <div class="flex flex-col min-w-0">
+        <span class="font-byline-meta text-byline-meta text-on-surface-variant uppercase">Total Guardados</span>
+        <span class="font-headline-md text-headline-md text-on-surface font-semibold" id="statTotalCount">0</span>
+      </div>
+    </div>
+    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md">
+      <div class="w-12 h-12 rounded-xl bg-surface-container-low text-secondary flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-[24px]">schedule</span>
+      </div>
+      <div class="flex flex-col min-w-0">
+        <span class="font-byline-meta text-byline-meta text-on-surface-variant uppercase">Tiempo Estimado</span>
+        <span class="font-headline-md text-headline-md text-on-surface font-semibold" id="statTotalTime">0 min</span>
+      </div>
+    </div>
+    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md">
+      <div class="w-12 h-12 rounded-xl bg-surface-container-low text-on-tertiary-container flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-[24px]">category</span>
+      </div>
+      <div class="flex flex-col min-w-0">
+        <span class="font-byline-meta text-byline-meta text-on-surface-variant uppercase">Categoría Principal</span>
+        <span class="font-label-md text-label-md font-semibold text-on-surface truncate" id="statTopCategory">—</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter / Search Bar -->
+  <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+    <div class="flex items-center gap-space-xxs overflow-x-auto pb-1 md:pb-0" id="favFilterContainer"></div>
+    <div class="relative min-w-[220px] md:max-w-xs">
+      <span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-on-surface-variant">search</span>
+      <input class="w-full pl-9 pr-8 py-1.5 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-label-md text-label-md rounded-lg outline-none" id="favSearchInput" placeholder="Filtrar por título o tema..." type="text"/>
+    </div>
+  </div>
+
+  <!-- List -->
+  <div class="flex flex-col gap-space-md" id="favArticlesContainer">
+    <div class="h-32 rounded-xl skeleton"></div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="hidden flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm" id="favEmptyState">
+    <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-md">
+      <span class="material-symbols-outlined text-[40px] text-secondary">bookmark_border</span>
+    </div>
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">Aún no tienes artículos guardados</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Explora las crónicas, análisis y reportajes de El Faro Digital y guarda los que quieras leer más tarde.</p>
+    <a class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors flex items-center gap-space-xs w-fit" href="explorar.html">
+      <span class="material-symbols-outlined text-[18px]">explore</span>
+      <span>Explorar Catálogo de Noticias</span>
+    </a>
+  </div>
+</div>
+
+<!-- Clear All Confirmation Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-inverse-surface/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 px-gutter-mobile" id="modalClearAll">
+  <div class="bg-surface-container-lowest max-w-md w-full p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md transform scale-95 transition-transform duration-300" id="modalBox">
+    <div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+      <span class="material-symbols-outlined text-[26px]">delete_sweep</span>
+    </div>
+    <div class="flex flex-col gap-space-xxs">
+      <h3 class="font-headline-sm text-headline-sm text-on-surface">¿Vaciar toda tu colección?</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant">Esta acción eliminará todos los artículos de tus favoritos de forma definitiva.</p>
+    </div>
+    <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+      <button class="px-space-md py-space-xs font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-colors" id="btnCancelClear">Cancelar</button>
+      <button class="px-space-md py-space-xs font-label-md text-label-md text-on-secondary bg-secondary hover:bg-secondary-container rounded-lg transition-colors flex items-center gap-1" id="btnConfirmClear">
+        <span class="material-symbols-outlined text-[18px]">delete_forever</span>
+        Sí, vaciar lista
+      </button>
+    </div>
+  </div>
+</div>

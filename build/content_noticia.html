@@ -1,0 +1,36 @@
+<div class="w-full max-w-[reading-column-max] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg" style="max-width: 900px;">
+  <div class="flex items-center gap-space-xs font-byline-meta text-byline-meta text-on-surface-variant">
+    <a class="hover:text-on-surface" href="index.html">Inicio</a>
+    <span>/</span>
+    <a class="hover:text-on-surface" href="explorar.html">Explorar Noticias</a>
+    <span>/</span>
+    <span class="text-secondary font-semibold" id="breadcrumbCategoria">Noticia</span>
+  </div>
+
+  <div id="articleContainer" class="flex flex-col gap-space-md">
+    <div class="h-8 w-2/3 rounded skeleton"></div>
+    <div class="h-96 w-full rounded-xl skeleton"></div>
+    <div class="h-4 w-full rounded skeleton"></div>
+    <div class="h-4 w-5/6 rounded skeleton"></div>
+  </div>
+
+  <!-- Se muestra solo si el id de la URL no existe en el JSON -->
+  <div class="hidden flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm" id="notFoundState">
+    <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-md">
+      <span class="material-symbols-outlined text-[40px] text-secondary">error_outline</span>
+    </div>
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">No encontramos esta noticia</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Es posible que el enlace sea incorrecto o el artículo haya sido movido.</p>
+    <a class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors" href="explorar.html">Volver al catálogo</a>
+  </div>
+
+  <!-- Relacionadas -->
+  <div class="flex flex-col gap-space-md pt-space-lg" id="relatedSection">
+    <div class="flex items-center gap-space-md">
+      <div class="h-1 w-12 bg-secondary rounded-full"></div>
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface font-bold">También te puede interesar</span>
+      <div class="flex-1 h-[1px] bg-surface-container-highest"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md" id="relatedGrid"></div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="w-full max-w-[1320px] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg">
+  <div class="flex flex-col gap-space-xxs">
+    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Catálogo Completo</span>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Explorar Noticias y Experiencias</h1>
+    <p class="font-body-lead text-body-lead text-on-surface-variant max-w-2xl">Filtra por categoría, busca por palabra clave y guarda los artículos que quieras leer más tarde.</p>
+  </div>
+
+  <!-- Filter & Search Bar -->
+  <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+    <div class="flex items-center gap-space-xxs overflow-x-auto pb-1 md:pb-0" id="categoryPillList">
+      <!-- Pills de categoría se generan dinámicamente en explorar.js -->
+    </div>
+    <div class="flex items-center gap-space-sm">
+      <div class="relative min-w-[220px] md:max-w-xs">
+        <span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-on-surface-variant">search</span>
+        <input class="w-full pl-9 pr-8 py-1.5 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-label-md text-label-md rounded-lg outline-none" id="searchInput" placeholder="Buscar por título o tema..." type="text"/>
+        <button class="hidden absolute right-2.5 top-2.5 text-on-surface-variant hover:text-on-surface" id="clearSearchBtn">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+      <select class="px-space-sm py-1.5 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-lg outline-none" id="sortSelect">
+        <option value="reciente">Más recientes</option>
+        <option value="antiguo">Más antiguas</option>
+        <option value="lectura-corta">Lectura más corta</option>
+        <option value="populares">Más vistas</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Results counter -->
+  <div class="flex items-center justify-between font-byline-meta text-byline-meta text-on-surface-variant">
+    <span id="resultsCounter">Cargando resultados...</span>
+    <button class="text-secondary font-semibold hover:underline" id="resetFiltersBtn">Limpiar filtros</button>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md" id="cardsGrid">
+    <div class="h-80 rounded-xl skeleton"></div>
+    <div class="h-80 rounded-xl skeleton"></div>
+    <div class="h-80 rounded-xl skeleton"></div>
+  </div>
+
+  <!-- Empty State -->
+  <div class="hidden flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm" id="emptyState">
+    <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant mb-space-md">
+      <span class="material-symbols-outlined text-[40px] text-secondary">search_off</span>
+    </div>
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">No encontramos resultados</h3>
+    <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Prueba con otra palabra clave o restablece los filtros de categoría.</p>
+    <button class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors" id="emptyStateResetBtn">Restablecer búsqueda</button>
+  </div>
+</div>

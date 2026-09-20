@@ -1,0 +1,89 @@
+<!-- Hero Editorial Banner -->
+<section class="max-w-[1320px] mx-auto px-gutter-desktop w-full pt-space-lg pb-space-2xl">
+  <div class="flex items-center justify-between gap-space-md mb-space-md">
+    <div class="flex items-center gap-space-xs">
+      <span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary">Edición Central • Primera Plana</span>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch" id="heroContainer">
+    <!-- Se renderiza dinámicamente con JS (home.js) a partir de la noticia destacada -->
+    <div class="lg:col-span-12 h-72 rounded-xl skeleton"></div>
+  </div>
+</section>
+
+<!-- Section Divider -->
+<div class="max-w-[1320px] mx-auto px-gutter-desktop w-full">
+  <div class="w-full flex items-center gap-space-md">
+    <div class="h-1 w-12 bg-secondary rounded-full"></div>
+    <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface font-bold">Cuatro Pilares Informativos</span>
+    <div class="flex-1 h-[1px] bg-surface-container-highest"></div>
+  </div>
+</div>
+
+<!-- Featured News Grid (renderizado dinámico desde JSON) -->
+<section class="max-w-[1320px] mx-auto px-gutter-desktop w-full py-space-xl">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm mb-space-lg">
+    <div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Noticias de Portada</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant">Investigación rigurosa en los frentes que transforman el territorio.</p>
+    </div>
+    <a class="font-label-md text-label-md text-secondary font-semibold hover:underline flex items-center gap-1" href="explorar.html">
+      Ver todas <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    </a>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md" id="featuredGrid">
+    <div class="h-80 rounded-xl skeleton"></div>
+    <div class="h-80 rounded-xl skeleton"></div>
+    <div class="h-80 rounded-xl skeleton"></div>
+    <div class="h-80 rounded-xl skeleton"></div>
+  </div>
+</section>
+
+<!-- Interactive Features & Services (renderizado dinámico desde servicios.json) -->
+<section class="max-w-[1320px] mx-auto px-gutter-desktop w-full py-space-lg">
+  <div class="bg-surface-container-low rounded-2xl p-space-lg md:p-space-xl">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+      <div class="flex flex-col">
+        <span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary">Herramientas de Redacción &amp; Lector</span>
+        <h2 class="font-headline-md text-headline-md text-on-surface">Servicios Interactivos de El Faro</h2>
+      </div>
+      <span class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Módulos de consulta avanzada, gestión documental y sincronización multiplataforma.</span>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md" id="servicesGrid">
+      <div class="h-36 rounded-xl skeleton"></div>
+      <div class="h-36 rounded-xl skeleton"></div>
+      <div class="h-36 rounded-xl skeleton"></div>
+      <div class="h-36 rounded-xl skeleton"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="max-w-[1320px] mx-auto px-gutter-desktop w-full py-space-2xl">
+  <div class="bg-primary-container rounded-2xl p-space-xl flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+    <div class="flex flex-col gap-space-xxs max-w-xl">
+      <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary-fixed">Informe Matutino</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-primary-container">No te pierdas ni una edición</h2>
+      <p class="font-body-md text-body-md text-primary-fixed-dim">Recibe cada mañana un resumen curado de las noticias más relevantes directamente en tu correo.</p>
+    </div>
+    <form class="w-full lg:w-auto flex flex-col gap-space-sm bg-surface-container-lowest rounded-xl p-space-lg shadow-sm min-w-[320px]" id="newsletterForm" novalidate="">
+      <div class="flex flex-col gap-1">
+        <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-label-md text-label-md text-on-surface placeholder:text-on-surface-variant/70 border-none outline-none w-full" id="subscriberName" placeholder="Tu nombre" type="text"/>
+      </div>
+      <div class="flex flex-col gap-1">
+        <input class="px-space-sm py-space-xs bg-surface-container-low rounded font-label-md text-label-md text-on-surface placeholder:text-on-surface-variant/70 border-none outline-none w-full" id="subscriberEmail" placeholder="tu-correo@ejemplo.com" type="email"/>
+        <span class="hidden font-byline-meta text-byline-meta text-error" id="subscriberEmail-error"></span>
+      </div>
+      <button class="w-full py-space-xs bg-secondary text-on-secondary font-label-md text-label-md rounded hover:bg-secondary-container transition-all flex items-center justify-center gap-space-xs shadow" type="submit">
+        <span>Recibir Boletín Diario</span>
+        <span class="material-symbols-outlined text-[18px]">mail</span>
+      </button>
+      <div class="hidden p-space-sm bg-surface-container rounded text-on-surface font-body-sm text-body-sm flex items-center gap-space-xs" id="newsletterSuccess">
+        <span class="material-symbols-outlined text-secondary text-[20px]">mark_email_read</span>
+        <span>¡Bienvenido! Hemos enviado una confirmación a tu buzón.</span>
+      </div>
+      <p class="font-byline-meta text-byline-meta text-on-surface-variant text-center">Respetamos tu privacidad. Puedes darte de baja en cualquier momento.</p>
+    </form>
+  </div>
+</section>
