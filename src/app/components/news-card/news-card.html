@@ -1,0 +1,39 @@
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between group h-full">
+  <div>
+    <div class="relative h-48 w-full overflow-hidden bg-surface-container">
+      <img
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        [alt]="noticia().titulo"
+        [src]="noticia().imagen"
+        loading="lazy"
+      />
+      <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full font-label-caps text-label-caps uppercase font-bold" [class]="noticia().colorBadge">{{ noticia().categoria }}</span>
+      <button
+        type="button"
+        class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm flex items-center justify-center transition-colors"
+        [class.text-secondary]="esFavorito()"
+        [class.text-on-surface-variant]="!esFavorito()"
+        [attr.aria-label]="esFavorito() ? 'Quitar de favoritos' : 'Guardar en favoritos'"
+        (click)="alternarFavorito($event)"
+      >
+        <span class="material-symbols-outlined text-[18px]" [style.font-variation-settings]="relleno()">
+          {{ esFavorito() ? 'favorite' : 'favorite_border' }}
+        </span>
+      </button>
+    </div>
+    <div class="p-space-md flex flex-col gap-space-xs">
+      <div class="flex items-center justify-between font-byline-meta text-byline-meta text-on-surface-variant">
+        <span>{{ noticia().fecha | date: 'd MMM y' }}</span>
+        <span>{{ noticia().autor }}</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-2">{{ noticia().titulo }}</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3 mt-1">{{ noticia().resumen }}</p>
+    </div>
+  </div>
+  <div class="p-space-md pt-0 flex items-center justify-between">
+    <a class="font-label-md text-label-md text-secondary font-semibold hover:underline flex items-center gap-1" [routerLink]="['/noticia', noticia().id]">
+      Ver más <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    </a>
+    <span class="font-byline-meta text-byline-meta text-on-surface-variant">{{ noticia().tiempoLectura }} min</span>
+  </div>
+</article>

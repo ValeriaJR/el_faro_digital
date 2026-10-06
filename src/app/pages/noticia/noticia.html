@@ -1,0 +1,74 @@
+<div class="w-full mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg" style="max-width: 900px">
+  @if (datos.cargando()) {
+    <div class="h-8 w-2/3 rounded skeleton"></div>
+    <div class="h-96 w-full rounded-xl skeleton"></div>
+  } @else if (noticia(); as n) {
+    <nav class="flex items-center gap-space-xs font-byline-meta text-byline-meta text-on-surface-variant">
+      <a class="hover:text-on-surface" routerLink="/">Inicio</a><span>/</span>
+      <a class="hover:text-on-surface" routerLink="/explorar">Explorar Noticias</a><span>/</span>
+      <span class="text-secondary font-semibold">{{ n.categoria }}</span>
+    </nav>
+
+    <article class="flex flex-col gap-space-md">
+      <div class="flex flex-col gap-space-xs">
+        <span class="w-fit px-2.5 py-0.5 rounded-full font-label-caps text-label-caps uppercase font-bold" [class]="n.colorBadge">{{ n.categoria }}</span>
+        <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">{{ n.titulo }}</h1>
+        <div class="flex items-center gap-space-sm font-byline-meta text-byline-meta text-on-surface-variant flex-wrap">
+          <span class="font-medium text-on-surface">{{ n.autor }}</span><span>•</span>
+          <span>{{ n.fecha | date: 'd MMM y' }}</span><span>•</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">timer</span>{{ n.tiempoLectura }} min de lectura</span><span>•</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">visibility</span>{{ n.vistas | number: '1.0-0' }} vistas</span>
+        </div>
+      </div>
+
+      <div class="w-full h-72 md:h-[420px] rounded-xl overflow-hidden bg-surface-container">
+        <img class="w-full h-full object-cover" [alt]="n.titulo" [src]="n.imagen" />
+      </div>
+
+      <div class="flex items-center gap-space-sm flex-wrap">
+        <button
+          type="button"
+          class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-colors"
+          [class.bg-secondary]="esFavorito()"
+          [class.text-on-secondary]="esFavorito()"
+          [class.bg-surface-container]="!esFavorito()"
+          [class.text-on-surface]="!esFavorito()"
+          (click)="alternarFavorito()"
+        >
+          <span class="material-symbols-outlined text-[18px]">{{ esFavorito() ? 'favorite' : 'favorite_border' }}</span>
+          <span>{{ esFavorito() ? 'Guardado' : 'Guardar' }}</span>
+        </button>
+        <div class="flex items-center gap-1 ml-auto" aria-label="Tamaño de letra">
+          <button type="button" class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high font-label-md" aria-label="Reducir letra" (click)="cambiarTamanio(-2)">A-</button>
+          <button type="button" class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high font-label-md" aria-label="Aumentar letra" (click)="cambiarTamanio(2)">A+</button>
+        </div>
+      </div>
+
+      <div class="font-body-lead text-on-surface flex flex-col gap-space-md" [style.font-size.px]="tamanio()" style="line-height: 1.7">
+        @for (parrafo of n.contenido; track $index) { <p>{{ parrafo }}</p> }
+      </div>
+    </article>
+
+    @if (relacionadas().length > 0) {
+      <section class="flex flex-col gap-space-md pt-space-lg">
+        <div class="flex items-center gap-space-md">
+          <div class="h-1 w-12 bg-secondary rounded-full"></div>
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface font-bold">También te puede interesar</span>
+          <div class="flex-1 h-[1px] bg-surface-container-highest"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+          @for (r of relacionadas(); track r.id) { <app-news-card [noticia]="r" /> }
+        </div>
+      </section>
+    }
+  } @else {
+    <div class="flex flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm">
+      <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-space-md">
+        <span class="material-symbols-outlined text-[40px] text-secondary">error_outline</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">No encontramos esta noticia</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Es posible que el enlace sea incorrecto o el artículo haya sido movido.</p>
+      <a class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors" routerLink="/explorar">Volver al catálogo</a>
+    </div>
+  }
+</div>

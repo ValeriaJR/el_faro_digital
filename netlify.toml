@@ -1,0 +1,13 @@
+# Configuración de despliegue en Netlify
+[build]
+  command = "npm run build"
+  publish = "dist/el-faro-digital/browser"
+
+[build.environment]
+  NODE_VERSION = "24"   # Angular 22 exige Node >= 22.22.3 / 24.15
+
+# Las rutas de Angular (/explorar, /noticia/:id...) las resuelve el router en el navegador.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

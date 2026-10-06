@@ -1,0 +1,64 @@
+<div class="w-full max-w-[1320px] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg">
+  <div class="flex flex-col gap-space-xxs">
+    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Catálogo Completo</span>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Explorar Noticias y Experiencias</h1>
+    <p class="font-body-lead text-body-lead text-on-surface-variant max-w-2xl">Filtra por categoría, busca por palabra clave y guarda los artículos que quieras leer más tarde.</p>
+  </div>
+
+  <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+    <div class="flex items-center gap-space-xxs overflow-x-auto pb-1 md:pb-0">
+      @for (cat of ['all'].concat(datos.categorias()); track cat) {
+        <button
+          type="button"
+          class="px-space-sm py-1.5 rounded-full font-label-md text-label-md transition-colors whitespace-nowrap"
+          [class.bg-primary]="categoria() === cat"
+          [class.text-on-primary]="categoria() === cat"
+          [class.bg-surface-container]="categoria() !== cat"
+          [class.text-on-surface-variant]="categoria() !== cat"
+          (click)="categoria.set(cat)"
+        >{{ cat === 'all' ? 'Todos' : cat }}</button>
+      }
+    </div>
+    <div class="flex items-center gap-space-sm">
+      <div class="relative min-w-[220px] md:max-w-xs">
+        <span class="material-symbols-outlined absolute left-3 top-2 text-[18px] text-on-surface-variant">search</span>
+        <input class="w-full pl-9 pr-8 py-1.5 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-label-md text-label-md rounded-lg outline-none" placeholder="Buscar por título o tema..." type="text" [(ngModel)]="busqueda" />
+        @if (busqueda()) {
+          <button type="button" class="absolute right-2.5 top-2 text-on-surface-variant hover:text-on-surface" aria-label="Limpiar búsqueda" (click)="busqueda.set('')">
+            <span class="material-symbols-outlined text-[16px]">close</span>
+          </button>
+        }
+      </div>
+      <select class="px-space-sm py-1.5 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-lg outline-none" [(ngModel)]="orden">
+        <option value="reciente">Más recientes</option>
+        <option value="antiguo">Más antiguas</option>
+        <option value="lectura-corta">Lectura más corta</option>
+        <option value="populares">Más vistas</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between font-byline-meta text-byline-meta text-on-surface-variant">
+    <span>{{ resultados().length }} {{ resultados().length === 1 ? 'resultado encontrado' : 'resultados encontrados' }}</span>
+    <button type="button" class="text-secondary font-semibold hover:underline" (click)="reiniciar()">Limpiar filtros</button>
+  </div>
+
+  @if (datos.cargando()) {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+      @for (i of [1, 2, 3]; track i) { <div class="h-80 rounded-xl skeleton"></div> }
+    </div>
+  } @else if (resultados().length === 0) {
+    <div class="flex flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm">
+      <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-space-md">
+        <span class="material-symbols-outlined text-[40px] text-secondary">search_off</span>
+      </div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">No encontramos resultados</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Prueba con otra palabra clave o restablece los filtros de categoría.</p>
+      <button type="button" class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors" (click)="reiniciar()">Restablecer búsqueda</button>
+    </div>
+  } @else {
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+      @for (n of resultados(); track n.id) { <app-news-card [noticia]="n" /> }
+    </div>
+  }
+</div>

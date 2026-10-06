@@ -1,0 +1,93 @@
+<div class="w-full max-w-[1320px] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-xl">
+  <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md">
+    <div class="max-w-3xl flex flex-col gap-space-xxs">
+      <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Archivo Personalizado</span>
+      <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Mis Artículos Guardados</h1>
+      <p class="font-body-lead text-body-lead text-on-surface-variant">Tu biblioteca personal de lecturas, guardada en este navegador mediante almacenamiento local.</p>
+    </div>
+    <button
+      type="button"
+      class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-error-container text-on-error-container hover:bg-surface-container-high font-label-md text-label-md transition-colors self-start lg:self-auto disabled:opacity-50"
+      [disabled]="guardadas().length === 0"
+      (click)="modalVaciar.set(true)"
+    >
+      <span class="material-symbols-outlined text-[18px]">delete_sweep</span><span>Vaciar biblioteca</span>
+    </button>
+  </div>
+
+  <!-- Estadísticas -->
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md">
+      <div class="w-12 h-12 rounded-xl bg-surface-container-low text-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">bookmarks</span></div>
+      <div class="flex flex-col"><span class="font-byline-meta text-byline-meta text-on-surface-variant uppercase">Total Guardados</span><span class="font-headline-md text-headline-md text-on-surface font-semibold">{{ guardadas().length }}</span></div>
+    </div>
+    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md">
+      <div class="w-12 h-12 rounded-xl bg-surface-container-low text-secondary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">schedule</span></div>
+      <div class="flex flex-col"><span class="font-byline-meta text-byline-meta text-on-surface-variant uppercase">Tiempo Estimado</span><span class="font-headline-md text-headline-md text-on-surface font-semibold">{{ minutosTotales() }} min</span></div>
+    </div>
+    <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center gap-space-md">
+      <div class="w-12 h-12 rounded-xl bg-surface-container-low text-on-tertiary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[24px]">category</span></div>
+      <div class="flex flex-col min-w-0"><span class="font-byline-meta text-byline-meta text-on-surface-variant uppercase">Categoría Principal</span><span class="font-label-md text-label-md font-semibold text-on-surface truncate">{{ categoriaPrincipal() }}</span></div>
+    </div>
+  </div>
+
+  @if (datos.cargando()) {
+    <div class="h-32 rounded-xl skeleton"></div>
+  } @else if (guardadas().length === 0) {
+    <div class="flex flex-col items-center justify-center py-space-3xl px-space-md text-center bg-surface-container-lowest rounded-xl shadow-sm">
+      <div class="w-20 h-20 rounded-full bg-surface-container flex items-center justify-center mb-space-md"><span class="material-symbols-outlined text-[40px] text-secondary">bookmark_border</span></div>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-space-xxs">Aún no tienes artículos guardados</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-lg">Explora las crónicas, análisis y reportajes de El Faro Digital y guarda los que quieras leer más tarde.</p>
+      <a class="px-space-lg py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors flex items-center gap-space-xs w-fit" routerLink="/explorar">
+        <span class="material-symbols-outlined text-[18px]">explore</span><span>Explorar Catálogo de Noticias</span>
+      </a>
+    </div>
+  } @else {
+    <div class="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+      <div class="flex items-center gap-space-xxs overflow-x-auto pb-1 md:pb-0">
+        @for (cat of ['all'].concat(categorias()); track cat) {
+          <button
+            type="button"
+            class="px-space-sm py-1.5 rounded-full font-label-md text-label-md transition-colors whitespace-nowrap"
+            [class.bg-primary]="categoriaActiva() === cat"
+            [class.text-on-primary]="categoriaActiva() === cat"
+            [class.bg-surface-container]="categoriaActiva() !== cat"
+            [class.text-on-surface-variant]="categoriaActiva() !== cat"
+            (click)="categoria.set(cat)"
+          >{{ cat === 'all' ? 'Todos (' + guardadas().length + ')' : cat }}</button>
+        }
+      </div>
+      <div class="relative min-w-[220px] md:max-w-xs">
+        <span class="material-symbols-outlined absolute left-3 top-2 text-[18px] text-on-surface-variant">search</span>
+        <input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-label-md text-label-md rounded-lg outline-none" placeholder="Filtrar por título o tema..." type="text" [(ngModel)]="busqueda" />
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-space-md">
+      @for (n of filtradas(); track n.id) {
+        <app-favorito-item [noticia]="n" (eliminar)="quitar($event)" />
+      } @empty {
+        <p class="font-body-sm text-body-sm text-on-surface-variant text-center py-space-xl">No hay artículos guardados que coincidan con tu búsqueda.</p>
+      }
+    </div>
+  }
+</div>
+
+<!-- Modal: vaciar biblioteca -->
+@if (modalVaciar()) {
+  <div class="fixed inset-0 z-[70] flex items-center justify-center bg-inverse-surface/60 backdrop-blur-sm px-gutter-mobile" role="dialog" aria-modal="true" (click)="modalVaciar.set(false)">
+    <div class="bg-surface-container-lowest max-w-md w-full p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md" (click)="$event.stopPropagation()">
+      <div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center"><span class="material-symbols-outlined text-[26px]">delete_sweep</span></div>
+      <div class="flex flex-col gap-space-xxs">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">¿Vaciar toda tu colección?</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Esta acción eliminará todos los artículos de tus favoritos.</p>
+      </div>
+      <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+        <button type="button" class="px-space-md py-space-xs font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-colors" (click)="modalVaciar.set(false)">Cancelar</button>
+        <button type="button" class="px-space-md py-space-xs font-label-md text-label-md text-on-secondary bg-secondary hover:bg-secondary-container rounded-lg transition-colors flex items-center gap-1" (click)="vaciar()">
+          <span class="material-symbols-outlined text-[18px]">delete_forever</span>Sí, vaciar lista
+        </button>
+      </div>
+    </div>
+  </div>
+}

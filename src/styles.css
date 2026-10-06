@@ -1,0 +1,18 @@
+/* Estilos globales de El Faro Digital (complementan a Tailwind CDN) */
+html, body { margin: 0; padding: 0; }
+body { overscroll-behavior: none; }
+::-webkit-scrollbar { display: none; }
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Campos de formulario con error */
+.border-error { border-color: #ba1a1a !important; }
+
+/* Spinner de envío */
+.spinner { border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; width: 16px; height: 16px; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Esqueleto de carga */
+.skeleton { background: linear-gradient(90deg,#eef1fb 25%,#e4e9fb 37%,#eef1fb 63%); background-size: 400% 100%; animation: skeleton-loading 1.4s ease infinite; }
+@keyframes skeleton-loading { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }

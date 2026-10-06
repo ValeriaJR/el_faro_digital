@@ -1,0 +1,89 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+  <!-- Barra superior -->
+  <div class="w-full bg-surface-container-low">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-9 flex items-center justify-between font-byline-meta text-byline-meta text-on-surface-variant">
+      <div class="flex items-center gap-space-md">
+        <span class="flex items-center gap-space-xxs text-on-surface capitalize">
+          <span class="material-symbols-outlined text-[16px]">calendar_today</span>{{ hoy | date: "EEEE, d 'de' MMMM 'de' y" }}
+        </span>
+        <span class="hidden md:inline-block text-outline-variant">•</span>
+        <span class="hidden md:flex items-center gap-space-xxs"><span class="material-symbols-outlined text-[16px]">partly_cloudy_day</span>Bogotá / Medellín 19°C</span>
+        <span class="hidden lg:inline-block text-outline-variant">•</span>
+        <span class="hidden lg:flex items-center gap-space-xxs text-secondary"><span class="material-symbols-outlined text-[16px]">trending_up</span>USD/COP: $4.180,50 COP (+0.3%)</span>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <a class="hover:text-on-surface transition-colors" routerLink="/contacto">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Logo, buscador y favoritos -->
+  <div class="w-full bg-surface-container-lowest">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-20 flex items-center justify-between gap-space-lg">
+      <a class="flex items-center gap-space-sm" routerLink="/">
+        <img alt="El Faro Digital Logo" class="h-12 w-auto object-contain" src="assets/logo/logo_principal.png" />
+        <div class="flex flex-col">
+          <span class="font-headline-md text-headline-md tracking-tight leading-none text-on-surface">EL FARO</span>
+          <span class="font-label-caps text-label-caps text-secondary tracking-widest">DIGITAL • PERIODISMO INDEPENDIENTE</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex flex-1 max-w-xl mx-space-md">
+        <div class="w-full flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-low rounded-lg text-on-surface-variant">
+          <span class="material-symbols-outlined text-[20px]">search</span>
+          <input
+            class="w-full bg-transparent border-none outline-none font-label-md text-label-md text-on-surface placeholder:text-on-surface-variant/70"
+            placeholder="Buscar noticias, temas o redactores... (Enter)"
+            type="text"
+            [(ngModel)]="busqueda"
+            (keyup.enter)="buscar()"
+          />
+        </div>
+      </div>
+
+      <div class="flex items-center gap-space-md">
+        <a class="relative flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors" routerLink="/favoritos">
+          <span class="material-symbols-outlined text-[20px] text-secondary">bookmark</span>
+          <span class="hidden sm:inline font-label-md text-label-md">Guardados</span>
+          <span class="px-1.5 bg-secondary text-on-secondary rounded-full text-[10px] font-bold leading-tight">{{ favoritos.total() }}</span>
+        </a>
+        <div class="h-7 w-[1px] bg-surface-container-highest hidden sm:block"></div>
+        <div class="flex items-center gap-space-sm pl-space-xs">
+          <img alt="Perfil de usuario" class="w-8 h-8 rounded-full object-cover bg-surface-container" src="assets/img/avatar-usuario.jpg" />
+          <div class="hidden xl:flex flex-col text-left">
+            <span class="font-label-md text-label-md text-on-surface leading-tight">Valeria Jiménez</span>
+            <span class="font-byline-meta text-byline-meta text-on-surface-variant leading-none">Suscriptora Digital</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú principal -->
+  <div class="w-full bg-surface-container-lowest">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-12 flex items-center justify-between">
+      <nav class="flex items-center gap-space-xs overflow-x-auto py-1">
+        @for (enlace of menu; track enlace.ruta) {
+          <a
+            class="px-space-sm py-1.5 rounded font-label-md text-label-md whitespace-nowrap transition-colors text-on-surface-variant"
+            [routerLink]="enlace.ruta"
+            routerLinkActive="bg-surface-container-high !text-on-surface font-semibold"
+            [routerLinkActiveOptions]="{ exact: enlace.exacto }"
+          >{{ enlace.texto }}</a>
+        }
+      </nav>
+      <div class="hidden md:flex items-center gap-space-xs">
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Canal En Vivo</span>
+        <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Última hora -->
+  <div class="w-full bg-surface-container-low">
+    <div class="max-w-[1320px] mx-auto px-gutter-desktop h-10 flex items-center gap-space-sm font-label-md text-label-md overflow-hidden">
+      <span class="px-space-xs py-0.5 bg-secondary text-on-secondary font-label-caps text-label-caps uppercase rounded tracking-wider whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">campaign</span>Última Hora</span>
+      <p class="truncate text-on-surface font-body-sm text-body-sm font-medium">Foro Internacional de Tecnología &amp; Educación abre inscripciones para 2027 • Conoce las ponencias centrales y agenda regional.</p>
+    </div>
+  </div>
+</header>

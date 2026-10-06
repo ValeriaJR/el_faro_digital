@@ -1,0 +1,15 @@
+<div
+  class="fixed bottom-6 right-6 z-[60] flex items-center gap-space-sm bg-inverse-surface text-inverse-on-surface px-space-md py-space-sm rounded-xl shadow-xl transition-all duration-300 pointer-events-none"
+  [class.translate-y-20]="!servicio.toast()"
+  [class.opacity-0]="!servicio.toast()"
+  role="status"
+  aria-live="polite"
+>
+  @if (servicio.toast(); as t) {
+    <span class="material-symbols-outlined text-secondary text-[22px]" style="font-variation-settings: 'FILL' 1;">{{ t.icono }}</span>
+    <div class="flex flex-col">
+      <span class="font-label-md text-label-md leading-tight">{{ t.titulo }}</span>
+      <span class="font-byline-meta text-byline-meta text-surface-dim">{{ t.mensaje }}</span>
+    </div>
+  }
+</div>

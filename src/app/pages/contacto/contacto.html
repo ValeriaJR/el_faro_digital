@@ -1,0 +1,200 @@
+<div class="w-full max-w-[1320px] mx-auto px-gutter-desktop py-space-xl flex flex-col gap-space-lg">
+  <div class="flex flex-col gap-space-xxs">
+    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Buzón Seguro</span>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gestión Editorial &amp; Contacto</h1>
+    <p class="font-body-lead text-body-lead text-on-surface-variant max-w-2xl">Escríbenos, propone una columna o administra el catálogo de noticias publicadas.</p>
+  </div>
+
+  <!-- Pestañas -->
+  <div class="flex items-center gap-space-xs border-b border-surface-container-highest" role="tablist">
+    @for (t of [{ id: 'contacto', texto: 'Contacto & Redacción' }, { id: 'gestion', texto: 'Gestión de Noticias' }]; track t.id) {
+      <button
+        type="button"
+        role="tab"
+        class="px-space-md py-space-sm font-label-md text-label-md border-b-2 transition-colors"
+        [class.border-secondary]="pestana() === t.id"
+        [class.text-secondary]="pestana() === t.id"
+        [class.border-transparent]="pestana() !== t.id"
+        [class.text-on-surface-variant]="pestana() !== t.id"
+        [attr.aria-selected]="pestana() === t.id"
+        (click)="pestana.set($any(t.id))"
+      >{{ t.texto }}</button>
+    }
+  </div>
+
+  @if (pestana() === 'contacto') {
+    <section class="flex flex-col lg:flex-row gap-space-xl">
+      <form class="flex-1 bg-surface-container-lowest p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md" [formGroup]="contacto" (ngSubmit)="enviarContacto()" novalidate>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-label-md text-on-surface" for="c-nombre">Nombre completo</label>
+          <input id="c-nombre" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary" [class.border-error]="mostrarError(contacto.controls.nombre)" placeholder="Ej. Ana María Torres" type="text" formControlName="nombre" />
+          @if (mostrarError(contacto.controls.nombre)) { <span class="font-byline-meta text-byline-meta text-error">Ingresa tu nombre completo (mínimo 3 caracteres).</span> }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-label-md text-on-surface" for="c-correo">Correo electrónico</label>
+          <input id="c-correo" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary" [class.border-error]="mostrarError(contacto.controls.correo)" placeholder="tu-correo@ejemplo.com" type="email" formControlName="correo" />
+          @if (mostrarError(contacto.controls.correo)) { <span class="font-byline-meta text-byline-meta text-error">Ingresa un correo electrónico válido.</span> }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-label-md text-on-surface" for="c-motivo">Motivo</label>
+          <select id="c-motivo" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary" [class.border-error]="mostrarError(contacto.controls.motivo)" formControlName="motivo">
+            <option value="">Selecciona un motivo</option>
+            @for (m of motivos; track m.valor) { <option [value]="m.valor">{{ m.texto }}</option> }
+          </select>
+          @if (mostrarError(contacto.controls.motivo)) { <span class="font-byline-meta text-byline-meta text-error">Selecciona un motivo.</span> }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center justify-between">
+            <label class="font-label-md text-label-md text-on-surface" for="c-mensaje">Mensaje</label>
+            <span class="font-byline-meta text-byline-meta text-on-surface-variant">{{ longitudMensaje() }} / 500</span>
+          </div>
+          <textarea id="c-mensaje" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent focus:border-primary resize-none" [class.border-error]="mostrarError(contacto.controls.mensaje)" maxlength="500" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..." formControlName="mensaje"></textarea>
+          @if (mostrarError(contacto.controls.mensaje)) { <span class="font-byline-meta text-byline-meta text-error">El mensaje debe tener al menos 20 caracteres.</span> }
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label class="flex items-start gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+            <input class="mt-1" type="checkbox" formControlName="terminos" />
+            <span>Acepto la política de privacidad y el código de ética editorial.</span>
+          </label>
+          @if (mostrarError(contacto.controls.terminos)) { <span class="font-byline-meta text-byline-meta text-error">Debes aceptar la política de privacidad.</span> }
+        </div>
+
+        <button class="px-space-md py-space-sm bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors flex items-center justify-center gap-space-xs disabled:opacity-60" type="submit" [disabled]="enviando()">
+          @if (enviando()) { <span class="spinner"></span> }
+          <span>{{ enviando() ? 'Enviando...' : 'Enviar mensaje' }}</span>
+        </button>
+
+        @if (ticket(); as t) {
+          <div class="flex flex-col gap-space-xxs p-space-md bg-surface-container rounded-lg">
+            <div class="flex items-center gap-space-xs text-on-surface font-label-md text-label-md font-semibold">
+              <span class="material-symbols-outlined text-secondary text-[20px]">task_alt</span><span>¡Mensaje enviado con éxito!</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">Tu número de radicado es <strong>{{ t }}</strong>. Te responderemos a tu correo en un plazo máximo de 3 días hábiles.</p>
+          </div>
+        }
+      </form>
+
+      <aside class="lg:w-80 flex flex-col gap-space-md">
+        <div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-sm">
+          <h3 class="font-headline-sm text-headline-sm text-on-surface">Otros canales</h3>
+          <div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[18px] text-secondary">mail</span><span>redaccion&#64;elfarodigital.com</span></div>
+          <div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant"><span class="material-symbols-outlined text-[18px] text-secondary">schedule</span><span>Lunes a viernes, 8:00 a.m. – 6:00 p.m.</span></div>
+        </div>
+      </aside>
+    </section>
+  } @else {
+    <section class="flex flex-col gap-space-lg">
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+        <div class="relative min-w-[220px] md:max-w-xs">
+          <span class="material-symbols-outlined absolute left-3 top-2 text-[18px] text-on-surface-variant">search</span>
+          <input class="w-full pl-9 pr-3 py-1.5 bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/70 font-label-md text-label-md rounded-lg outline-none" placeholder="Buscar por título o autor..." type="text" [(ngModel)]="filtro" />
+        </div>
+        <button type="button" class="px-space-md py-space-xs bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:bg-primary-container transition-colors flex items-center gap-space-xs w-fit" (click)="abrirNueva()">
+          <span class="material-symbols-outlined text-[18px]">add</span><span>Nueva noticia</span>
+        </button>
+      </div>
+
+      <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-x-auto">
+        <table class="w-full text-left">
+          <thead class="bg-surface-container-low">
+            <tr class="font-label-caps text-label-caps text-on-surface-variant uppercase">
+              <th class="px-space-md py-space-sm">Título</th><th class="px-space-md py-space-sm">Categoría</th><th class="px-space-md py-space-sm">Autor</th><th class="px-space-md py-space-sm">Fecha</th><th class="px-space-md py-space-sm text-right">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (n of filas(); track n.id) {
+              <tr class="border-t border-surface-container-low hover:bg-surface-container-low/60 transition-colors">
+                <td class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface max-w-xs truncate">{{ n.titulo }}</td>
+                <td class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant">{{ n.categoria }}</td>
+                <td class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant">{{ n.autor }}</td>
+                <td class="px-space-md py-space-sm font-body-sm text-body-sm text-on-surface-variant">{{ n.fecha }}</td>
+                <td class="px-space-md py-space-sm text-right">
+                  <div class="flex items-center justify-end gap-space-xxs">
+                    <a class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface" [routerLink]="['/noticia', n.id]" title="Ver"><span class="material-symbols-outlined text-[18px]">visibility</span></a>
+                    <button type="button" class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Editar" (click)="abrirEdicion(n)"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+                    <button type="button" class="p-1.5 rounded-lg hover:bg-error-container text-on-surface-variant hover:text-on-error-container" title="Eliminar" (click)="porEliminar.set(n)"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+                  </div>
+                </td>
+              </tr>
+            } @empty {
+              <tr><td colspan="5" class="px-space-md py-space-xl text-center font-body-md text-body-md text-on-surface-variant">No hay noticias que coincidan con tu búsqueda.</td></tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  }
+</div>
+
+<!-- Modal: crear / editar noticia -->
+@if (modalForm()) {
+  <div class="fixed inset-0 z-[70] flex items-start md:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm px-gutter-mobile py-space-xl overflow-y-auto" role="dialog" aria-modal="true">
+    <form class="bg-surface-container-lowest max-w-2xl w-full p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md" [formGroup]="noticiaForm" (ngSubmit)="guardarNoticia()" novalidate>
+      <div class="flex items-center justify-between">
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">{{ editando() ? 'Editar noticia' : 'Nueva noticia' }}</h3>
+        <button type="button" class="text-on-surface-variant hover:text-on-surface" aria-label="Cerrar" (click)="modalForm.set(false)"><span class="material-symbols-outlined">close</span></button>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="n-titulo">Título</label>
+        <input id="n-titulo" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent" [class.border-error]="mostrarError(noticiaForm.controls.titulo)" type="text" formControlName="titulo" />
+        @if (mostrarError(noticiaForm.controls.titulo)) { <span class="font-byline-meta text-byline-meta text-error">El título debe tener al menos 8 caracteres.</span> }
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-label-md text-on-surface" for="n-categoria">Categoría</label>
+          <select id="n-categoria" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none" formControlName="categoria">
+            @for (c of categoriasForm; track c) { <option [value]="c">{{ c }}</option> }
+          </select>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label class="font-label-md text-label-md text-on-surface" for="n-autor">Autor</label>
+          <input id="n-autor" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent" [class.border-error]="mostrarError(noticiaForm.controls.autor)" type="text" formControlName="autor" />
+          @if (mostrarError(noticiaForm.controls.autor)) { <span class="font-byline-meta text-byline-meta text-error">Ingresa el autor.</span> }
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="n-imagen">Imagen (URL https://… o ruta assets/…)</label>
+        <input id="n-imagen" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none border border-transparent" [class.border-error]="mostrarError(noticiaForm.controls.imagen)" type="text" formControlName="imagen" />
+        @if (mostrarError(noticiaForm.controls.imagen)) { <span class="font-byline-meta text-byline-meta text-error">Debe ser una URL (https://…) o una ruta que empiece por assets/.</span> }
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="n-resumen">Resumen</label>
+        <textarea id="n-resumen" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none resize-none border border-transparent" [class.border-error]="mostrarError(noticiaForm.controls.resumen)" maxlength="220" rows="2" formControlName="resumen"></textarea>
+        @if (mostrarError(noticiaForm.controls.resumen)) { <span class="font-byline-meta text-byline-meta text-error">El resumen debe tener entre 20 y 220 caracteres.</span> }
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <label class="font-label-md text-label-md text-on-surface" for="n-contenido">Contenido (un párrafo por línea)</label>
+        <textarea id="n-contenido" class="px-space-sm py-space-xs bg-surface-container-low rounded font-body-md text-body-md text-on-surface outline-none resize-none border border-transparent" [class.border-error]="mostrarError(noticiaForm.controls.contenido)" rows="4" formControlName="contenido"></textarea>
+        @if (mostrarError(noticiaForm.controls.contenido)) { <span class="font-byline-meta text-byline-meta text-error">Ingresa el contenido de la noticia (mínimo 30 caracteres).</span> }
+      </div>
+
+      <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+        <button type="button" class="px-space-md py-space-xs font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-colors" (click)="modalForm.set(false)">Cancelar</button>
+        <button type="submit" class="px-space-md py-space-xs font-label-md text-label-md text-on-primary bg-primary hover:bg-primary-container rounded-lg transition-colors">Guardar noticia</button>
+      </div>
+    </form>
+  </div>
+}
+
+<!-- Modal: confirmar eliminación -->
+@if (porEliminar(); as n) {
+  <div class="fixed inset-0 z-[70] flex items-center justify-center bg-inverse-surface/60 backdrop-blur-sm px-gutter-mobile" role="dialog" aria-modal="true" (click)="porEliminar.set(null)">
+    <div class="bg-surface-container-lowest max-w-md w-full p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md" (click)="$event.stopPropagation()">
+      <h3 class="font-headline-sm text-headline-sm text-on-surface">¿Eliminar esta noticia?</h3>
+      <p class="font-body-sm text-body-sm text-on-surface-variant">«{{ n.titulo }}» se quitará del catálogo y de tus favoritos.</p>
+      <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+        <button type="button" class="px-space-md py-space-xs font-label-md text-label-md text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-colors" (click)="porEliminar.set(null)">Cancelar</button>
+        <button type="button" class="px-space-md py-space-xs font-label-md text-label-md text-on-secondary bg-secondary hover:bg-secondary-container rounded-lg transition-colors" (click)="confirmarEliminar()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+}
