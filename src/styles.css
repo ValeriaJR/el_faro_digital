@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Estilos globales de El Faro Digital (complementan a Tailwind CDN) */
 html, body { margin: 0; padding: 0; }
 body { overscroll-behavior: none; }
