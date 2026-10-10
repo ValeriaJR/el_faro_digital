@@ -5,8 +5,8 @@ Entrega final — Asignatura Frontend, Politécnico Grancolombiano.
 
 - **Autora:** Valeria Jiménez Rodríguez
 - **Docente:** John Olarte
-- **Sitio desplegado:** _https://el-faro-digital.netlify.app/_
-- **Video explicativo:** _(pegar aquí el enlace de YouTube)_
+- **Sitio desplegado:** _https://el-faro-digital.netlify.app_
+- **Video explicativo:** _https://youtu.be/XOYChFHqwIg?si=KjgcMmjTHe1YNJ6g_
 
 ## Requisitos
 - **Node.js** `^22.22.3`, `^24.15.0` o superior (recomendado: Node 24 LTS). 
